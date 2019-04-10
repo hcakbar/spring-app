@@ -1,2 +1,2 @@
 # spring-app
-Spring / Struts mentoring project
+Spring / Struts project for mentoring
