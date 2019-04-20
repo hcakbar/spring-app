@@ -21,7 +21,7 @@ public class Calculate {
     }
 
 
-    public double getTotal(double firstNum, String symbol, double secondNum) {
+    private double getTotal(double firstNum, String symbol, double secondNum) {
         double total = 0;
         switch (symbol.trim().toLowerCase()) {
             case "+":
