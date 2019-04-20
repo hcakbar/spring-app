@@ -11,7 +11,7 @@ public class MyAppStartup {
 
     public static void main(String... args) {
         ApplicationContext applicationContext = SpringApplication.run(MyAppStartup.class, args);
-        Calculate total = applicationContext.getBean(Calculate.class);
+        CalculatePayment total = applicationContext.getBean(CalculatePayment.class);
 
         //user input
         Scanner in = new Scanner(System.in);
