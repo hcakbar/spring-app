@@ -17,9 +17,5 @@ public class MortgageCalculate {
         return new EscrowCalculate();
     }
 
-    @Bean
-    public Calculate calculate() {
-        return new Calculate();
-    }
 
 }
