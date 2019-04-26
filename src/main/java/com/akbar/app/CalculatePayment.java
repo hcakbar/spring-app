@@ -5,17 +5,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class CalculatePayment {
 
-    private LoanCalculate loanCalculate;
-    private EscrowCalculate escrowCalculate;
+    private LoanCalculationService loanCalculationService;
+    private EscrowCalculationService escrowCalculationService;
 
-    public CalculatePayment(LoanCalculate loanCalculate, EscrowCalculate escrowCalculate) {
-        this.loanCalculate = loanCalculate;
-        this.escrowCalculate = escrowCalculate;
+    public CalculatePayment(LoanCalculationService loanCalculationService, EscrowCalculationService escrowCalculationService) {
+        this.loanCalculationService = loanCalculationService;
+        this.escrowCalculationService = escrowCalculationService;
     }
 
     public double getTotalMonthlyPayment(int loan, double rate, int termMonth, double monthlyTaxes, double monthlyInsurance) {
-        double monthlyLoan = loanCalculate.getMonthlyTotalLoan(loan, rate, termMonth);
-        double monthlyEscrow = escrowCalculate.getMonthlyEscrow(monthlyTaxes, monthlyInsurance);
+        double monthlyLoan = loanCalculationService.getMonthlyTotalLoan(loan, rate, termMonth);
+        double monthlyEscrow = escrowCalculationService.getMonthlyEscrow(monthlyTaxes, monthlyInsurance);
 
         return monthlyLoan + monthlyEscrow;
     }
