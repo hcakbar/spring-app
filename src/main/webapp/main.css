@@ -1,0 +1,29 @@
+.calculate-form {
+    display: inline-block;
+    width: 450px;
+    text-align: left;
+}
+label {
+    display: inline-block;
+    text-align: left;
+    float: left;
+    clear: left;
+    width: 200px;
+    margin-bottom: 5px;
+}
+input  {
+    display: inline-block;
+    border: 1px solid darkgray;
+    width: 200px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.calculate-button {
+    margin-top: 5px;
+}
+
+p {
+    display: inline-block;
+    text-align: left;
+}
