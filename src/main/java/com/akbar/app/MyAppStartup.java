@@ -11,10 +11,18 @@ public class MyAppStartup {
 
     public static void main(String... args) {
         ApplicationContext applicationContext = SpringApplication.run(MyAppStartup.class, args);
-        CalculatePayment total = applicationContext.getBean(CalculatePayment.class);
+        CalculationService total = applicationContext.getBean(CalculationService.class);
+        UserService userService = applicationContext.getBean(UserService.class);
 
         //user input
         Scanner in = new Scanner(System.in);
+        System.out.println("\n====================");
+        System.out.println("Loan Calculation App");
+        System.out.println("====================\n");
+        System.out.print("Enter email address: ");
+
+        String email = in.next();
+
         System.out.print("Enter loan amount: ");
         int loan = in.nextInt();
 
@@ -30,8 +38,14 @@ public class MyAppStartup {
         System.out.print("Enter monthly insurance: ");
         double monthlyInsurance = in.nextDouble();
 
+        double monthlyTotal = total.getTotalMonthlyPayment(loan, rate, termMonth, monthlyTaxes, monthlyInsurance);
+        System.out.println("Total : " + monthlyTotal);
 
-        System.out.println("Total : " + total.getTotalMonthlyPayment(loan, rate, termMonth, monthlyTaxes, monthlyInsurance));
+        //store in repository
+//        UserController userController = new UserController();
+//        userController.addUser(new UserEntity(email, loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
+
+        userService.addUser(new UserEntity(email, loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
     }
 
 }

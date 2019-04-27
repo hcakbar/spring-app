@@ -3,12 +3,13 @@ package com.akbar.app;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CalculatePayment {
+public class CalculationService {
+
 
     private LoanCalculate loanCalculate;
     private EscrowCalculate escrowCalculate;
 
-    public CalculatePayment(LoanCalculate loanCalculate, EscrowCalculate escrowCalculate) {
+    public CalculationService(LoanCalculate loanCalculate, EscrowCalculate escrowCalculate) {
         this.loanCalculate = loanCalculate;
         this.escrowCalculate = escrowCalculate;
     }
