@@ -1,6 +1,6 @@
 package com.akbar.app;
 
-public class LoanCalculate {
+public class LoanCalculationService {
 
 
     public double getMonthlyInterest(int loan, double rate) {
