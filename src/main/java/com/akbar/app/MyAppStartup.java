@@ -46,8 +46,6 @@ public class MyAppStartup {
 //        userController.addUser(new UserEntity(email, loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
 
         userService.addUser(new UserEntity(email, loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
-        userService.addUser(new UserEntity("abc@test.com", loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
-        userService.addUser(new UserEntity("xyz@test.com", loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
     }
 
 }

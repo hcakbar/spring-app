@@ -17,5 +17,9 @@ public class MortgageCalculationConfiguration {
         return new EscrowCalculationService();
     }
 
+    @Bean
+    public UserController addUser() {
+        return new UserController();
+    }
 
 }
