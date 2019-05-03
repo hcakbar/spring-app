@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 public class MortgageCalculate {
 
     @Bean
-    public LoanCalculate getMonthlyTotalLoan() {
-        return new LoanCalculate();
+    public LoanCalculationService getMonthlyTotalLoan() {
+        return new LoanCalculationService();
     }
 
     @Bean
-    public EscrowCalculate getMonthlyEscrow() {
-        return new EscrowCalculate();
+    public EscrowCalculationService getMonthlyEscrow() {
+        return new EscrowCalculationService();
     }
 
     @Bean
