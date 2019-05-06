@@ -21,6 +21,9 @@ input  {
 
 .calculate-button {
     margin-top: 5px;
+    background-color: gainsboro;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 p {
