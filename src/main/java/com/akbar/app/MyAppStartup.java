@@ -1,51 +1,41 @@
 package com.akbar.app;
 
+import org.apache.struts.action.ActionServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
-import java.util.Scanner;
+import java.io.File;
 
 @SpringBootApplication
 public class MyAppStartup {
 
     public static void main(String... args) {
-        ApplicationContext applicationContext = SpringApplication.run(MyAppStartup.class, args);
-        CalculationService total = applicationContext.getBean(CalculationService.class);
-        UserService userService = applicationContext.getBean(UserService.class);
+        SpringApplication.run(MyAppStartup.class, args);
+    }
 
-        //user input
-        Scanner in = new Scanner(System.in);
-        System.out.println("\n====================");
-        System.out.println("Loan Calculation App");
-        System.out.println("====================\n");
-        System.out.print("Enter email address: ");
+    @Bean
+    public ServletRegistrationBean strutsActionServlet() {
+        ActionServlet actionServlet = new ActionServlet();
+        ServletRegistrationBean<ActionServlet> actionServletServletRegistrationBean = new ServletRegistrationBean<>(actionServlet, "*.do");
+        actionServletServletRegistrationBean.setName("action");
+        actionServletServletRegistrationBean.addInitParameter("config", "/WEB-INF/struts-config.xml");
+        return actionServletServletRegistrationBean;
+    }
 
-        String email = in.next();
-
-        System.out.print("Enter loan amount: ");
-        int loan = in.nextInt();
-
-        System.out.print("Enter interest rate: ");
-        double rate = in.nextDouble();
-
-        System.out.print("Enter term months: ");
-        int termMonth = in.nextInt();
-
-        System.out.print("Enter monthly taxes: ");
-        double monthlyTaxes = in.nextDouble();
-
-        System.out.print("Enter monthly insurance: ");
-        double monthlyInsurance = in.nextDouble();
-
-        double monthlyTotal = total.getTotalMonthlyPayment(loan, rate, termMonth, monthlyTaxes, monthlyInsurance);
-        System.out.println("Total : " + monthlyTotal);
-
-        //store in repository
-//        UserController userController = new UserController();
-//        userController.addUser(new UserEntity(email, loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
-
-        userService.addUser(new UserEntity(email, loan, rate, termMonth, monthlyTaxes, monthlyInsurance, monthlyTotal));
+    //To handle IllegalStateException caused by struts-config.xml resource is not an existing directory
+    @Bean
+    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer() {
+        return new WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>() {
+            @Override
+            public void customize(ConfigurableServletWebServerFactory factory) {
+                factory.setDocumentRoot(new File("/Users/chowdhak/akbar/my-projects/spring-app/src/main/resources"));
+            }
+        };
     }
 
 }
