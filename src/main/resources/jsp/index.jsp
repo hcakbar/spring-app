@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Spring App</title>
-    <link rel="stylesheet" type="text/css" href="../../webapp/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>

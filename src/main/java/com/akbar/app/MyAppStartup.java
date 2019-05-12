@@ -33,7 +33,7 @@ public class MyAppStartup {
         return new WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>() {
             @Override
             public void customize(ConfigurableServletWebServerFactory factory) {
-                factory.setDocumentRoot(new File("/Users/chowdhak/akbar/my-projects/spring-app/src/main/resources"));
+                factory.setDocumentRoot(new File("/Users/akbar/projects/spring-app/src/main/resources"));
             }
         };
     }
