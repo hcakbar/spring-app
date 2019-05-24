@@ -10,7 +10,7 @@
 
     <action-mappings>
         <action path="/loan-calculation-action" name="loanCal" type="com.akbar.app.calculation.LoanCalculationAction">
-            <forward name="loan" path="../../resources/jsp/index.jsp" redirect="false"/>
+            <forward name="loan" path="/jsp/index.jsp" redirect="false"/>
         </action>
     </action-mappings>
 </struts-config>

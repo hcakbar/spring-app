@@ -1,3 +1,6 @@
+<%@taglib prefix="bean" uri="http://struts.apache.org/tags-bean" %>
+<%@taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
+<%--<%@taglib prefix="logic" uri="http://struts.apache.org/tags-logic" %>--%>
 <html>
 <head>
     <title>Spring App</title>
@@ -25,12 +28,12 @@
     <label>Enter Monthly Insurance:</label>
     <input name="insurance" type="text" placeholder="ex. 50">
 
-    <%--<button name="totalMonthlyPayment" type="submit" >Calculate</button>--%>
+    <button name="totalMonthlyPayment" type="submit">Calculate</button>
 
 </form>
-<%--<div>--%>
-    <%--<p>Total Monthly Payment: $<span hidden="true">amount</span></p>--%>
-<%--</div>--%>
+<div>
+    <p>Total Monthly Payment: <bean:write name="loanCal" property="totalMonthlyPayment" format="0000.00"/></p>
+</div>
 <footer>
     <p>Spring/Struts example app for mentoring program</p>
 </footer>
