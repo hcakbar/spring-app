@@ -12,21 +12,24 @@ public class LoanCalculationAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
         LoanCalculationActionForm actionForm = (LoanCalculationActionForm) form;
-//        actionForm.setTotalMonthlyPayment(1200.00);
-
-         getLoan(actionForm);
+        getMonthlyPayment(actionForm);
         return mapping.findForward("loan");
     }
 
-    private double getLoan(LoanCalculationActionForm actionForm) {
-        double total = 0;
-        //TODO do some stuff here
-
-
-
-        return total;
+    private void getMonthlyPayment(LoanCalculationActionForm actionForm) {
+        actionForm.setTotalMonthlyPayment(getLoan(actionForm) + getEscrows(actionForm));
     }
 
+    //TODO use loan calculation formula
+    private double getLoan(LoanCalculationActionForm actionForm) {
+        double loan = actionForm.getLoanAmount() / actionForm.getLoanTermMonth();
+        double interest = loan * (actionForm.getLoanRate() / 100);
+        return loan + interest;
+    }
+
+    private double getEscrows(LoanCalculationActionForm actionForm) {
+        return (actionForm.getTaxes() / 12) + (actionForm.getInsurance() / 12);
+    }
 
 
 }

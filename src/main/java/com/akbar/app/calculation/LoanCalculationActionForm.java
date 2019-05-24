@@ -6,7 +6,7 @@ public class LoanCalculationActionForm extends ActionForm {
 
     private String email;
     private int loanAmount;
-    private double loanRate;
+    private float loanRate;
     private int loanTermMonth;
     private double taxes;
     private double insurance;
@@ -28,11 +28,11 @@ public class LoanCalculationActionForm extends ActionForm {
         this.loanAmount = loanAmount;
     }
 
-    public double getLoanRate() {
+    public float getLoanRate() {
         return loanRate;
     }
 
-    public void setLoanRate(double loanRate) {
+    public void setLoanRate(float loanRate) {
         this.loanRate = loanRate;
     }
 

@@ -22,10 +22,10 @@
     <label>Enter Loan Terms (months):</label>
     <input name="loanTermMonth" type="text" placeholder="ex. 180">
 
-    <label>Enter Monthly Taxes:</label>
+    <label>Enter Taxes:</label>
     <input name="taxes" type="text" placeholder="ex. 300">
 
-    <label>Enter Monthly Insurance:</label>
+    <label>Enter Insurance:</label>
     <input name="insurance" type="text" placeholder="ex. 50">
 
     <button name="totalMonthlyPayment" type="submit">Calculate</button>
