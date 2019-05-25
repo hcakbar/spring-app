@@ -20,6 +20,7 @@ input  {
 }
 
 .calculate-button {
+    float: right;
     margin-top: 5px;
     background-color: gainsboro;
     font-weight: bold;

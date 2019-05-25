@@ -9,30 +9,43 @@
 
 <body>
 <h1>Loan Calculation</h1>
-<form class="calculate-form" action="/loan-calculation-action.do" method="post">
-    <label>Enter Email:</label>
-    <input name="email" type="text" placeholder="ex. abc@abc.com" property="email_e">
-
-    <label>Enter Loan Amount:</label>
-    <input name="loanAmount" type="text" placeholder="ex. 100000" property="loan_e">
-
-    <label>Enter Interest Rate:</label>
-    <input name="loanRate" type="text" placeholder="ex. 3.5" property="rate_e">
-
-    <label>Enter Loan Terms (year):</label>
-    <input name="loanTermYear" type="text" placeholder="ex. 20" property="term_e">
-
-    <label>Enter Taxes (yearly):</label>
-    <input name="taxes" type="text" placeholder="ex. 4000">
-
-    <label>Enter Insurance (yearly):</label>
-    <input name="insurance" type="text" placeholder="ex. 2000">
-
-    <button name="totalMonthlyPayment" type="submit">Calculate</button>
-
-</form>
+<html:form action="/loan-calculation-action.do" method="post">
+    <table>
+        <tr>
+            <td>Enter Email:</td>
+            <td><html:text property="email"/></td>
+            <td><html:errors property="email_e"/></td>
+        </tr>
+        <tr>
+            <td>Enter Loan Amount:</td>
+            <td><html:text property="loanAmount"/></td>
+            <td><html:errors property="loan_e"/></td>
+        </tr>
+        <tr>
+            <td>Enter Interest Rate:</td>
+            <td><html:text property="loanRate"/></td>
+            <td><html:errors property="rate_e"/></td>
+        </tr>
+        <tr>
+            <td>Enter Loan Terms (years):</td>
+            <td><html:text property="loanTermYear"/></td>
+            <td><html:errors property="term_e"/></td>
+        </tr>
+        <tr>
+            <td>Enter Taxes (yearly):</td>
+            <td><html:text property="taxes"/></td>
+        </tr>
+        <tr>
+            <td>Enter Insurance (yearly):</td>
+            <td><html:text property="insurance"/></td>
+        </tr>
+        <tr>
+            <td><html:submit value="Calculate"/></td>
+        </tr>
+    </table>
+</html:form>
 <div>
-    <p>Total Monthly Payment: <bean:write name="loanCal" property="totalMonthlyPayment" format="0000.00"/></p>
+    <p>Total Monthly Payment: $<bean:write name="loanCal" property="totalMonthlyPayment" format="0000.00"/></p>
 </div>
 <footer>
     <p>Spring/Struts example app for mentoring program</p>
