@@ -17,16 +17,16 @@
     <input name="loanAmount" type="text" placeholder="ex. 100000">
 
     <label>Enter Interest Rate:</label>
-    <input name="loanRate" type="text" placeholder="ex. 0.05">
+    <input name="loanRate" type="text" placeholder="ex. 3.5">
 
-    <label>Enter Loan Terms (months):</label>
-    <input name="loanTermMonth" type="text" placeholder="ex. 180">
+    <label>Enter Loan Terms (year):</label>
+    <input name="loanTermYear" type="text" placeholder="ex. 20">
 
-    <label>Enter Taxes:</label>
-    <input name="taxes" type="text" placeholder="ex. 300">
+    <label>Enter Taxes (yearly):</label>
+    <input name="taxes" type="text" placeholder="ex. 4000">
 
-    <label>Enter Insurance:</label>
-    <input name="insurance" type="text" placeholder="ex. 50">
+    <label>Enter Insurance (yearly):</label>
+    <input name="insurance" type="text" placeholder="ex. 2000">
 
     <button name="totalMonthlyPayment" type="submit">Calculate</button>
 

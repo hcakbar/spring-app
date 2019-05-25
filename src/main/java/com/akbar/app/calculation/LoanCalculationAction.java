@@ -22,7 +22,7 @@ public class LoanCalculationAction extends Action {
 
     //TODO use loan calculation formula
     private double getLoan(LoanCalculationActionForm actionForm) {
-        double loan = actionForm.getLoanAmount() / actionForm.getLoanTermMonth();
+        double loan = actionForm.getLoanAmount() / actionForm.getLoanTermYear();
         double interest = loan * (actionForm.getLoanRate() / 100);
         return loan + interest;
     }

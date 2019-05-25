@@ -7,7 +7,7 @@ public class LoanCalculationActionForm extends ActionForm {
     private String email;
     private int loanAmount;
     private float loanRate;
-    private int loanTermMonth;
+    private int loanTermYear;
     private double taxes;
     private double insurance;
     private double totalMonthlyPayment;
@@ -36,12 +36,12 @@ public class LoanCalculationActionForm extends ActionForm {
         this.loanRate = loanRate;
     }
 
-    public int getLoanTermMonth() {
-        return loanTermMonth;
+    public int getLoanTermYear() {
+        return loanTermYear;
     }
 
-    public void setLoanTermMonth(int loanTermMonth) {
-        this.loanTermMonth = loanTermMonth;
+    public void setLoanTermYear(int loanTermYear) {
+        this.loanTermYear = loanTermYear;
     }
 
     public double getTaxes() {
@@ -67,6 +67,16 @@ public class LoanCalculationActionForm extends ActionForm {
     public void setTotalMonthlyPayment(double totalMonthlyPayment) {
         this.totalMonthlyPayment = totalMonthlyPayment;
     }
+
+//    @Override
+//    public ActionErrors validate(ActionMapping mapping, ServletRequest request) {
+//        ActionErrors actionErrors = new ActionErrors();
+//        if (email == "") {
+//            actionErrors.add("email_e", new ActionMessage("email_validation_error"));
+//        }
+//        //TODO add error validation
+//        return super.validate(mapping, request);
+//    }
 
 
 }
