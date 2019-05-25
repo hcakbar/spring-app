@@ -45,7 +45,7 @@
     </table>
 </html:form>
 <div>
-    <p>Total Monthly Payment: $<bean:write name="loanCal" property="totalMonthlyPayment" format="0000.00"/></p>
+    <p>Monthly Payment: $<bean:write name="loanCal" property="totalMonthlyPayment" format="0000.00"/></p>
 </div>
 <footer>
     <p>Spring/Struts example app for mentoring program</p>
