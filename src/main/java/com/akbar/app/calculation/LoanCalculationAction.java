@@ -12,23 +12,21 @@ public class LoanCalculationAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
         LoanCalculationActionForm actionForm = (LoanCalculationActionForm) form;
-        getMonthlyPayment(actionForm);
+        calculateMonthlyPayment(actionForm);
         return mapping.findForward("loan");
     }
 
-    private void getMonthlyPayment(LoanCalculationActionForm actionForm) {
-        actionForm.setTotalMonthlyPayment(getLoan(actionForm) + getEscrows(actionForm));
-    }
+    private void calculateMonthlyPayment(LoanCalculationActionForm actionForm) {
+        int loanAmount = actionForm.getLoanAmount();
+        int loanTerm = actionForm.getLoanTermYear() * 12;
+        double interestRate = actionForm.getLoanRate() / (12 * 100);
+        double monthlyTaxes = actionForm.getTaxes() / 12;
+        double monthlyInsurance = actionForm.getInsurance() / 12;
 
-    //TODO use loan calculation formula
-    private double getLoan(LoanCalculationActionForm actionForm) {
-        double loan = actionForm.getLoanAmount() / actionForm.getLoanTermYear();
-        double interest = loan * (actionForm.getLoanRate() / 100);
-        return loan + interest;
-    }
-
-    private double getEscrows(LoanCalculationActionForm actionForm) {
-        return (actionForm.getTaxes() / 12) + (actionForm.getInsurance() / 12);
+        //EMI calculation formula: https://javatutoring.com/emi-java-program/
+        double monthlyLoan = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
+        double monthlyPayment = monthlyLoan + monthlyTaxes + monthlyInsurance;
+        actionForm.setTotalMonthlyPayment(monthlyPayment);
     }
 
 
