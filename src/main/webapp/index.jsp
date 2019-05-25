@@ -11,16 +11,16 @@
 <h1>Loan Calculation</h1>
 <form class="calculate-form" action="/loan-calculation-action.do" method="post">
     <label>Enter Email:</label>
-    <input name="email" type="text" placeholder="ex. abc@abc.com">
+    <input name="email" type="text" placeholder="ex. abc@abc.com" property="email_e">
 
     <label>Enter Loan Amount:</label>
-    <input name="loanAmount" type="text" placeholder="ex. 100000">
+    <input name="loanAmount" type="text" placeholder="ex. 100000" property="loan_e">
 
     <label>Enter Interest Rate:</label>
-    <input name="loanRate" type="text" placeholder="ex. 3.5">
+    <input name="loanRate" type="text" placeholder="ex. 3.5" property="rate_e">
 
     <label>Enter Loan Terms (year):</label>
-    <input name="loanTermYear" type="text" placeholder="ex. 20">
+    <input name="loanTermYear" type="text" placeholder="ex. 20" property="term_e">
 
     <label>Enter Taxes (yearly):</label>
     <input name="taxes" type="text" placeholder="ex. 4000">

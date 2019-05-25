@@ -7,10 +7,11 @@
         <form-bean name="loanCal" type="com.akbar.app.calculation.LoanCalculationActionForm"></form-bean>
     </form-beans>
 
-
     <action-mappings>
-        <action path="/loan-calculation-action" name="loanCal" type="com.akbar.app.calculation.LoanCalculationAction">
-            <forward name="loan" path="/jsp/index.jsp" redirect="false"/>
+        <action path="/loan-calculation-action" name="loanCal" validate="true" input="index.jsp"  type="com.akbar.app.calculation.LoanCalculationAction">
+            <forward name="loan" path="index.jsp" redirect="true"/>
         </action>
     </action-mappings>
+
+    <message-resources parameter="/resources/form-error"/>
 </struts-config>

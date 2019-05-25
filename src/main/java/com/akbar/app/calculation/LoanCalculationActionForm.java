@@ -1,6 +1,11 @@
 package com.akbar.app.calculation;
 
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
+import javax.servlet.ServletRequest;
 
 public class LoanCalculationActionForm extends ActionForm {
 
@@ -68,15 +73,23 @@ public class LoanCalculationActionForm extends ActionForm {
         this.totalMonthlyPayment = totalMonthlyPayment;
     }
 
-//    @Override
-//    public ActionErrors validate(ActionMapping mapping, ServletRequest request) {
-//        ActionErrors actionErrors = new ActionErrors();
-//        if (email == "") {
-//            actionErrors.add("email_e", new ActionMessage("email_validation_error"));
-//        }
-//        //TODO add error validation
-//        return super.validate(mapping, request);
-//    }
+    @Override
+    public ActionErrors validate(ActionMapping mapping, ServletRequest request) {
+        ActionErrors actionErrors = new ActionErrors();
+        if (email.equals("")) {
+            actionErrors.add("email_e", new ActionMessage("email_error"));
+        }
+        if (loanAmount == 0) {
+            actionErrors.add("loan_e", new ActionMessage("loan_error"));
+        }
+        if (loanRate == 0) {
+            actionErrors.add("rate_e", new ActionMessage("rate_error"));
+        }
+        if (loanTermYear == 0) {
+            actionErrors.add("term_e", new ActionMessage("term_error"));
+        }
+        return actionErrors;
+    }
 
 
 }
