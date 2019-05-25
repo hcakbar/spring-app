@@ -9,6 +9,7 @@
 
 <body>
 <h1>Loan Calculation</h1>
+<p>How much loan can you afford?</p>
 <html:form action="/loan-calculation-action.do" method="post">
     <table>
         <tr>
@@ -48,7 +49,7 @@
     <p>Monthly Payment: $<bean:write name="loanCal" property="totalMonthlyPayment" format="0000.00"/></p>
 </div>
 <footer>
-    <p>Spring/Struts example app for mentoring program</p>
+    <p>Spring/Struts sample app for mentoring program</p>
 </footer>
 </body>
 </html>
