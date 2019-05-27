@@ -3,6 +3,7 @@
     width: 450px;
     text-align: left;
 }
+
 label {
     display: inline-block;
     text-align: left;
@@ -11,7 +12,8 @@ label {
     width: 200px;
     margin-bottom: 5px;
 }
-input  {
+
+input {
     display: inline-block;
     border: 1px solid darkgray;
     width: 200px;
@@ -30,4 +32,9 @@ input  {
 p {
     display: inline-block;
     text-align: left;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
 }

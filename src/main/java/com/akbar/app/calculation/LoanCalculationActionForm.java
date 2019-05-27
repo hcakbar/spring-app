@@ -13,8 +13,8 @@ public class LoanCalculationActionForm extends ActionForm {
     private int loanAmount;
     private float loanRate;
     private int loanTermYear;
-    private double taxes;
-    private double insurance;
+    private float taxes;
+    private float insurance;
     private double totalMonthlyPayment;
 
     public String getEmail() {
@@ -49,19 +49,19 @@ public class LoanCalculationActionForm extends ActionForm {
         this.loanTermYear = loanTermYear;
     }
 
-    public double getTaxes() {
+    public float getTaxes() {
         return taxes;
     }
 
-    public void setTaxes(double taxes) {
+    public void setTaxes(float taxes) {
         this.taxes = taxes;
     }
 
-    public double getInsurance() {
+    public float getInsurance() {
         return insurance;
     }
 
-    public void setInsurance(double insurance) {
+    public void setInsurance(float insurance) {
         this.insurance = insurance;
     }
 
@@ -82,13 +82,24 @@ public class LoanCalculationActionForm extends ActionForm {
         if (loanAmount == 0) {
             actionErrors.add("loan_e", new ActionMessage("loan_error"));
         }
-        if (loanRate == 0) {
+        if (loanRate == 0.0) {
             actionErrors.add("rate_e", new ActionMessage("rate_error"));
         }
         if (loanTermYear == 0) {
             actionErrors.add("term_e", new ActionMessage("term_error"));
         }
         return actionErrors;
+    }
+
+    @Override
+    public void reset(ActionMapping mapping, ServletRequest request) {
+        email = "";
+        loanAmount = 0;
+        loanRate = 0;
+        loanTermYear = 0;
+        taxes = 0;
+        insurance = 0;
+        totalMonthlyPayment = 0;
     }
 
 
